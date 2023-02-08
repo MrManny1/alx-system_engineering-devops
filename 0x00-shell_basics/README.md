@@ -1,2 +1,2 @@
-List Long Format, Hidden
+List Long Format, Hidden with user group
 
