@@ -1,2 +1,2 @@
-My first directory in tmp
+Move Betty
 
