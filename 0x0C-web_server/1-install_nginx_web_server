@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+# This script installs and configures Nginx on an Ubuntu 16.04 LTS machine.
+
+# Update package list
+sudo apt-get update -y
+
+# Install Nginx
+sudo apt-get install -y nginx
+
+# Make sure Nginx is running
+sudo service nginx start
+
+# Configure Nginx to listen on port 80
+echo "server {
+        listen 80 default_server;
+        listen [::]:80 default_server;
+
+        root /var/www/html;
+        index index.html index.htm;
+
+        server_name _;
+
+        location / {
+                return 200 'Hello World!';
+                add_header Content-Type text/plain;
+        }
+}" | sudo tee /etc/nginx/sites-available/default > /dev/null
+
+# Reload Nginx to apply changes
+sudo service nginx reload
